@@ -11,7 +11,7 @@ const query = `subscription PushNotification {
     notification {
       message
     }
-  }`
+}`
 
 export default function PushNotification() {
     const [invisible, setInvisible] = useState(true);
@@ -23,13 +23,12 @@ export default function PushNotification() {
         setAnchorEl(null);
         setNotification('');
         setInvisible(true);
-    }
+    };
     const handleClick = (e) => {
         if(notification){
             setAnchorEl(e.currentTarget);
         }
-    }
-    
+    };
     
     useEffect(() => {
         // subscription
@@ -38,7 +37,6 @@ export default function PushNotification() {
                 setInvisible(false);
                 const message = data?.data?.notification?.message;
                 setNotification(message);
-                console.log(`[PushNotification]`,data);
             };
           
             await new Promise((resolve, reject) => {
@@ -58,7 +56,11 @@ export default function PushNotification() {
 
 
     return <>
-            <Badge color="success" variant="dot" invisible={invisible}>
+            <Badge 
+                color="success" 
+                variant="dot" 
+                invisible={invisible}
+            >
                 <Notifications onClick={handleClick}/>
             </Badge>
             <Menu
@@ -67,7 +69,9 @@ export default function PushNotification() {
                 open={open}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleClose}>{notification}</MenuItem>
+                <MenuItem onClick={handleClose}>
+                    {notification}
+                </MenuItem>
             </Menu>
         </>;
 }

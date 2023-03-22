@@ -1,7 +1,7 @@
 import { Avatar, Grid, Menu, MenuItem, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { useContext, useState } from 'react'
-import { AuthContext } from '../context/AuthProvider'
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../context/AuthProvider';
 
 export default function UserMenu() {
     const { user: {displayName, photoURL, auth} } = useContext(AuthContext);
@@ -11,13 +11,13 @@ export default function UserMenu() {
 
     const handleLogout = () => {
         auth.signOut();
-    }
+    };
     const handleClose = () => {
         setAnchorEl(null);
-    }
+    };
     const handleClick = (e) => {
         setAnchorEl(e.currentTarget);
-    }
+    };
 
     return (
         <Grid container>

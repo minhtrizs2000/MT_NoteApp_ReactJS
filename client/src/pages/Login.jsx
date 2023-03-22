@@ -26,7 +26,7 @@ export default function Login() {
             name: displayName
         },
         });
-    } 
+    };
 
     if(localStorage.getItem('accessToken')){
         //it will excute error "Maximum update depth exeeded" because using hook useNavigate outsite of hook useEffect
@@ -34,7 +34,7 @@ export default function Login() {
         //=> change to use Navigate component instead of hook useNavigate
         
         return <Navigate to="/" />;
-    }
+    };
 
         
     return (
@@ -44,5 +44,5 @@ export default function Login() {
                 Login with Google
             </Button>
         </Box>
-    )
+    );
 }

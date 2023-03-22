@@ -36,26 +36,26 @@ export default function NoteList() {
                     {
                         folder.notes.map(({id, content, updatedAt})=>{
                             return <Link
-                                key={id}
-                                to={`note/${id}`}
-                                style={{textDecoration:'none'}}
-                                onClick={()=> setActiveNoteID(id)}
-                                >
-                                    <Card 
-                                    sx={{
-                                        mb:'10px', 
-                                        '&:after': {width: id === activeNoteID ? '100%' : '0', content: '""', display: 'block', height: '10px', bgcolor: '#749F82', transition: 'width .3s'} }}>
-                                        <CardContent sx={{ '&:last-child': {pb: '10px'}, padding: '10px'}}>
-                                            <div style={{fontSize: 14, fontWeight: 'bold', color: '#749F82'}}
-                                                dangerouslySetInnerHTML={{__html: `${content.substring(0, 30) || 'Empty'}`}}
-                                            >
-                                            </div>
-                                            <Typography sx={{fontSize: '12px', pt: '10px'}}>
-                                                {moment(updatedAt).format('dd, Do/M/YYY ')}
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                            </Link>
+                                        key={id}
+                                        to={`note/${id}`}
+                                        style={{textDecoration:'none'}}
+                                        onClick={()=> setActiveNoteID(id)}
+                                    >
+                                        <Card 
+                                        sx={{
+                                            mb:'10px', 
+                                            '&:after': {width: id === activeNoteID ? '100%' : '0', content: '""', display: 'block', height: '10px', bgcolor: '#749F82', transition: 'width .3s'} }}>
+                                            <CardContent sx={{ '&:last-child': {pb: '10px'}, padding: '10px'}}>
+                                                <div style={{fontSize: 14, fontWeight: 'bold', color: '#749F82'}}
+                                                    dangerouslySetInnerHTML={{__html: `${content.substring(0, 30) || 'Empty'}`}}
+                                                >
+                                                </div>
+                                                <Typography sx={{fontSize: '12px', pt: '10px'}}>
+                                                    {moment(updatedAt).format('dd, Do/M/YYY ')}
+                                                </Typography>
+                                            </CardContent>
+                                        </Card>
+                                    </Link>;
                         })
                     }
                 </List>

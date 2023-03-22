@@ -54,6 +54,11 @@ export default function Note() {
         <Editor
             editorState = {editorState}
             onEditorStateChange = {handleOnChange}
+            
+            wrapperClassName="wrapper-class"
+            editorClassName="editor-class"
+            toolbarClassName="toolbar-class"
+
             placeholder = {'Start writing your note...'}
         />
     )
